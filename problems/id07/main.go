@@ -6,7 +6,7 @@ package main
 import "fmt"
 
 func main() {
-	index := 10001
+	index := 10
 	count := 0
 	num := 2
 
