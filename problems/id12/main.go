@@ -5,23 +5,30 @@ import (
 )
 
 func main() {
-	nat := []int{}
 	terms := []int{}
-	value := 5
-	divisors := 0
-	for value > divisors{
-		num := 1
-		terms = append(terms, num)
-		for i, v := range terms {
-			for j:=1; j<=len(terms); j++ {
-				if v%j == 0 {
-					divisors++
-					fmt.Println(terms[i])
-				}
-			}
-			num++
-			num = terms[i] + num
-		}
+
+	result := createTerms(10, &terms)
+	fmt.Println(result)
+
+	for _, v := range terms {
+		fmt.Println(v)
+	}
+
+
+}
+
+func getFactors(value int) {
+	
+	for i := 1; i <= value; i++ {
 		
 	}
+}
+
+func createTerms(value int, slice *[]int) int{
+	num := 0
+	for i:=1; i<=value; i++ {
+		num += i
+		*slice = append(*slice, num)
+	}
+	return num
 }
