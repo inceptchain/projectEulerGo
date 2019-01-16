@@ -60,10 +60,15 @@ func main() {
 	
 	vert := checkVertical(grid)
 	fmt.Println(vert)
+
 	horiz := checkHorizontal(grid)
 	fmt.Println(horiz)
+
 	diagL := checkDiagLeft(grid)
 	fmt.Println(diagL)
+
+	diagR := checkDiagRight(grid)
+	fmt.Println(diagR)
 
 }
 
@@ -123,8 +128,8 @@ func checkDiagRight (grid [][]int) int{
 	amount := 0
 	temp := 1
 	for i:=0; i<17; i++ {
-		for j := 3; j<20; j++ {
-			for k, x := i, j; x >= j-3; k, x = k+1, x-1 {
+		for j := 0; j<17; j++ {
+			for k, x := i, j; x <= j+3; k, x = k+1, x+1 {
 				temp *= grid[k][x]
 				//fmt.Println(temp)
 			}
