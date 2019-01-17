@@ -8,7 +8,7 @@ import (
 func main() {
 	terms := []int{}
 	max := 0
-	createTerms(13000, &terms)
+	createTerms(13000, &terms) //could automate this
 		
 	for i:=0; i<len(terms); i++ {
 		count := []int{}
@@ -26,7 +26,6 @@ func main() {
 		if len(count) > max {
 			max = len(count)
 			fmt.Println(count[0])
-
 		}
 	}
 	fmt.Println(max)
