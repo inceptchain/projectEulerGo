@@ -125,20 +125,45 @@ func main() {
 			grid[i], si = si[:50], si[50:]
 	}
 
-	for i:=0; i<100; i++{
-		for j:=0; j<50; j++ {
-			fmt.Println(grid[2][0])
-			fmt.Println(grid[3][0])
-			temp := grid[2][0] + grid[3][0]
-			a := (temp/10)%10
-			b := (temp%10)
-			fmt.Println(a)
-			fmt.Println(b)
+	for i:=1; i<2; i++{
+		carry := 0
+		for j:=49; j>=0; j-- {
+			fmt.Println(grid[0][j])
+			fmt.Println(grid[i][j])
+
+			grid[0][j] += carry
+
+			temp := grid[0][j] + grid[i][j]
+		
+			if temp > 9 {
+				a := (temp/10)%10
+				b := (temp%10)
+				grid[0][j] = b
+
+				if a == 1 {
+					carry = 1
+				}
+			} else {
+				grid[0][j] = temp
+			}
+			
+
+			if carry == 1 && grid[0][0] == 9 {   
+					grid[0] = append([]int{carry}, grid[0]...)
+			} 
+
+			if	
+					grid[len(grid[0])-1] += carry
+					
+				}
+			}
 		}
 	}
-
+	fmt.Println(grid[0])
 
 }
 
-37107287533902102798797998220837590246510135740250
-46376937677490009712648124896970078050417018260538
+// 37107287533902102798797998220837590246510135740250
+// 46376937677490009712648124896970078050417018260538
+// 74324986199524741059474233309513058123726617309629
+// 91942213363574161572522430563301811072406154908250
