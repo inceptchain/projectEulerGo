@@ -6,12 +6,13 @@ import (
 
 func main() {
 	maxLen := 0
-	start := 13
-	seq := []int{}
-	seq = append(seq, start)
+	sp := 0
+	
 	
 	for j:=13; j<1000000; j++ {
-		start = j
+		start := j
+		seq := []int{}
+		seq = append(seq, start)
 		for i:=0; i<len(seq); i++ {
 
 			if seq[i]%2 == 0 {
@@ -23,13 +24,17 @@ func main() {
 				seq = append(seq, num)
 			}
 
-			fmt.Println(seq[i])
+			//fmt.Println(seq[i])
 
 			if seq[i] == 1 {
 				seq = append(seq, seq[i])
 				if maxLen < len(seq) {
 					maxLen = len(seq)
+					sp = start
+					fmt.Println(maxLen)
+					fmt.Println(sp)
 				}
+				break
 			} 
 		}
 	}
