@@ -5,13 +5,9 @@ import (
 )
 
 func main() {
-	//si := []int{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+
 	gridSize := 21
 	grid := make([][]int, gridSize)
-	// for i := range grid {
-	// 	grid[i] = si[:gridSize]
-	// }
-	//fmt.Println(len(grid))
 
 	for y := 0; y < gridSize; y++ {
 		grid[y] = make([]int, gridSize)
