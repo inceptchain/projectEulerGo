@@ -6,25 +6,32 @@ import (
 
 func main() {
 	s := []int{}
-	exponent := 10
-
-	total := 2
+	exponent := 1000
+	carry := 0
+	total := 1
+	value := 0
 	s = append(s, total)
 	for i := 0; i < exponent; i++ {
-		for j, v := range s {
-			s[j] = v * 2
+		for j := len(s) - 1; j >= 0; j-- {
+			s[j] = s[j] * 2
+			s[j] += carry
+			carry = 0
 
 			if s[j] > 9 && j == 0 {
 				s[j] = s[j] % 10
 				s = append([]int{1}, s...)
-				break
+				//break
 			}
 			if s[j] > 9 && j != 0 {
 				s[j] = s[j] % 10
-				s[j-1] = s[j-1] + 1
+				carry = 1
 			}
 		}
 	}
 
+	for _, v := range s {
+		value += v
+	}
 	fmt.Println(s)
+	fmt.Println(value)
 }
