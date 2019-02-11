@@ -5,8 +5,8 @@ import (
 )
 
 func main() {
-	//tHeight := 15
-	//sxs := make([][]int, tHeight)
+	tHeight := 15
+	sxs := make([][]int, tHeight)
 
 	s := `75
 95 64
@@ -24,8 +24,32 @@ func main() {
 63 66 04 68 89 53 67 30 73 16 69 87 40 31
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23`
 
+	si := []int{}
+	var temp string
+	c := 0
 	for _, v := range s {
-		fmt.Println(v)
+		if v == 32 {
+			goto end
+		}
+
+		if c == 0 {
+			temp = string(v)
+			c++
+		} else {
+			digit := temp + string(v)
+			j, _ := strconv.Atoi(digit)
+			c = 0
+			temp = ""
+			si = append(si, j)
+		}
+	end:
+	}
+
+	for i := 0; i < tHeight; i++ {
+		sxs[i] = make([]int, i+1)
+		for j := 1; j <= len(sxs[i]); j++ {
+			sxs[i][i] = s[i]
+		}
 	}
 
 }
