@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 )
 
 func main() {
@@ -28,7 +29,8 @@ func main() {
 	var temp string
 	c := 0
 	for _, v := range s {
-		if v == 32 {
+		fmt.Println(v)
+		if v == 32 || v == 10{
 			goto end
 		}
 
@@ -45,11 +47,12 @@ func main() {
 	end:
 	}
 
-	for i := 0; i < tHeight; i++ {
-		sxs[i] = make([]int, i+1)
-		for j := 1; j <= len(sxs[i]); j++ {
-			sxs[i][i] = s[i]
-		}
+	
+	for i := range sxs{
+		sxs[i], si = si[:i+1], si[i+1:]
 	}
+	
+
+	fmt.Println(sxs)
 
 }
