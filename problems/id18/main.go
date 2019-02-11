@@ -51,8 +51,20 @@ func main() {
 	for i := range sxs{
 		sxs[i], si = si[:i+1], si[i+1:]
 	}
+	fmt.Println(len(sxs[13]))
+	for i := 13; i >= 0; i-- {
+		for j := 0; j<len(sxs[i]); j++ {
+			temp1 := sxs[i+1][j] + sxs[i][j]
+			temp2 := sxs[i+1][j+1] + sxs[i][j]
+			if temp1 > temp2 {
+				sxs[i][j] = temp1
+			} else {
+				sxs[i][j] = temp2
+			}
+		}
+	}
 	
-
-	fmt.Println(sxs)
+	//fmt.Println(len(sxs[0]))
+	fmt.Println(sxs[0][0])
 
 }
